@@ -16,7 +16,7 @@ type cell struct {
 	display byte // display character for cell
 }
 
-const lMargin = 4
+const lMargin = 6
 
 var (
 	grid        [][]cell
@@ -85,7 +85,7 @@ func endGame(msg string) {
 	if scanner.Err() != nil || ans == "n" {
 		return
 	}
-	makeGrid(6, 4)
+	makeGrid(6, 6)
 	displayGrid(false)
 }
 
@@ -208,7 +208,7 @@ func splitAction(action string) (int, int, bool) {
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	usage()
-	makeGrid(6, 4)
+	makeGrid(6, 6)
 	displayGrid(false)
 	for !isGameOver {
 		fmt.Print("\n>")
@@ -221,7 +221,7 @@ func main() {
 		case 'h', '?':
 			usage()
 		case 'n':
-			makeGrid(6, 4)
+			makeGrid(6, 6)
 			displayGrid(false)
 		case 'c':
 			x, y, ok := splitAction(action)
